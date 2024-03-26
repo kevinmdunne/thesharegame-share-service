@@ -1,15 +1,18 @@
 package com.thesharegame.shareservice.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Builder;
 import lombok.Data;
 import org.hibernate.annotations.UuidGenerator;
 
 @Entity
-@Table(name="shares")
+@Table(name="stockexchanges")
 @Data
 @Builder
-public class ShareEnt {
+public class StockExchangeEnt {
 
     @Id
     @UuidGenerator(style = UuidGenerator.Style.RANDOM)
@@ -18,13 +21,6 @@ public class ShareEnt {
     @Column(name="symbol", length=20, nullable=false)
     private String symbol;
 
-    @Column(name="fullname", nullable=false)
+    @Column(name="fullname", length=200, nullable=false)
     private String fullname;
-
-    @Column(name="price", nullable=false)
-    private double price;
-
-    @Column(name="stock_exchange_id", nullable=false)
-    private String stockExchangeId;
-
 }
