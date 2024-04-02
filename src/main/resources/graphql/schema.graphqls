@@ -1,0 +1,17 @@
+type Query {
+    shareById(id: ID): Share
+}
+
+type Share {
+    id: ID
+    symbol: String
+    fullname: String
+    price: Float
+    stockExchange: StockExchange
+}
+
+type StockExchange {
+    id: ID
+    symbol: String
+    fullname: String
+}
