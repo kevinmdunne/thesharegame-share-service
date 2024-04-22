@@ -2,6 +2,10 @@ type Query {
     shareById(id: ID): Share
 }
 
+type Mutation {
+    resetShares: Boolean
+}
+
 type Share {
     id: ID
     symbol: String
