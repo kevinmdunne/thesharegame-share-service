@@ -1,14 +1,18 @@
 package com.thesharegame.shareservice.service;
 
 import com.opencsv.CSVReader;
+import com.thesharegame.shareservice.dto.ShareDto;
 import com.thesharegame.shareservice.entity.ShareEnt;
 import com.thesharegame.shareservice.repository.ShareRepository;
+import com.thesharegame.shareservice.util.ConvertorHelper;
+import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ShareService {
@@ -17,6 +21,20 @@ public class ShareService {
 
     public ShareService(ShareRepository shareRepository){
         this.shareRepository = shareRepository;
+    }
+
+    public ShareDto shareById(@Argument String id){
+        Optional<ShareEnt> shareEntOptional = this.shareRepository.findById(id);
+        if(shareEntOptional.isPresent()) {
+            ShareEnt shareEnt = shareEntOptional.get();
+            return ConvertorHelper.EntToDto(shareEnt);
+        }
+        return null;
+    }
+
+    public List<ShareDto> sharesByStockExchange(String stockExchangeId){
+        List<ShareEnt> shares = this.shareRepository.findAllByStockExchangeId(stockExchangeId);
+        return ConvertorHelper.entsToDtos(shares);
     }
 
     public Boolean resetShares(){

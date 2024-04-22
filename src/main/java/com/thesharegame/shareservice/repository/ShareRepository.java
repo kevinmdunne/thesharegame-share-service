@@ -6,7 +6,11 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface ShareRepository extends JpaRepository<ShareEnt, Long> {
+import java.util.List;
+
+public interface ShareRepository extends JpaRepository<ShareEnt, String> {
+
+    List<ShareEnt> findAllByStockExchangeId(String stockExchangeId);
 
     @Modifying
     @Transactional
