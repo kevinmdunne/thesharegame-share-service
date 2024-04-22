@@ -1,5 +1,6 @@
 type Query {
     shareById(id: ID): Share
+    sharesByStockExchange(stockExchangeId : ID): [Share]
 }
 
 type Mutation {

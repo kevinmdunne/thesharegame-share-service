@@ -1,15 +1,20 @@
 package com.thesharegame.shareservice.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UuidGenerator;
 
 @Entity
 @Table(name="shares")
 @Data
 @Builder
+@AllArgsConstructor
 public class ShareEnt {
+
+    public ShareEnt(){}
 
     @Id
     @UuidGenerator(style = UuidGenerator.Style.RANDOM)
