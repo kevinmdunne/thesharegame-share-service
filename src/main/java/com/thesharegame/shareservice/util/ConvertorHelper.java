@@ -14,6 +14,8 @@ public class ConvertorHelper {
                 .symbol(shareEnt.getSymbol())
                 .price(shareEnt.getPrice())
                 .fullname(shareEnt.getFullname())
+                .createDate(shareEnt.getCreateDate())
+                .modifyDate(shareEnt.getModifyDate())
                 .build();
     }
 
