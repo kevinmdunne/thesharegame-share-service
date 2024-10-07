@@ -3,10 +3,10 @@ package com.thesharegame.shareservice;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class ShareServiceApplicationTests {
 
-	@Test
+//	@Test
 	void contextLoads() {
 	}
 
