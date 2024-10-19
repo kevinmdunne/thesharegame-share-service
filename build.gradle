@@ -67,6 +67,6 @@ jib {
 		}
 	}
 	container {
-		args = ['--spring.config.location=classpath:/application.properties,file:/var/config/share_service.properties']
+		args = ['--spring.config.location=classpath:/application.properties,file:/etc/thesharegame/share_service.properties']
 	}
 }
